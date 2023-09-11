@@ -26,6 +26,8 @@ app.listen(3000, async() => {
     // tweet.comments.push({content: 'first content here'});
     // await tweet.save();
     // console.log(tweet);
-    const tweet = await tweetRepo.getWithComments('64f9d4c679816b01e623908d');
+    // const tweet = await tweetRepo.getAll(0,4);
+    // console.log(tweet[0].contentWithEmail);
+    const tweet  = await tweetRepo.create({content: 'with Hooks'});
     console.log(tweet);
 });
