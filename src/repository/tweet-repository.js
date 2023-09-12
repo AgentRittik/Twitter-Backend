@@ -32,16 +32,16 @@ class TweetRepository {
         }
     }
     
-    async update(tweetId , data){
-        try{
-            const tweet = await Tweet.findByIdAndUpdate(tweetId , data, {new:true}); // we have to pass the new:true otherwise it will return thee previous data after an update
-            return tweet;
+    // async update(tweetId , data){
+    //     try{
+    //         const tweet = await Tweet.findByIdAndUpdate(tweetId , data, {new:true}); // we have to pass the new:true otherwise it will return thee previous data after an update
+    //         return tweet;
 
-        }
-        catch(error){
-            console.log(error);
-        }
-    }
+    //     }
+    //     catch(error){
+    //         console.log(error);
+    //     }
+    // }
     async destroy(id){
         try{
             const tweet = await Tweet.findByIdAndRemove(id);
