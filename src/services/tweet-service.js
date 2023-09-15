@@ -1,5 +1,5 @@
 
-const { TweetRepository , HashtagRepository } = require('../repository/index')
+import { TweetRepository, HashtagRepository} from '../repository/index.js'
 
 
 class TweetService{
@@ -35,7 +35,7 @@ class TweetService{
     }
 }
 
-module.exports = TweetService;
+export default TweetService;
 
 /*
  this is my #first . I am really #excited
