@@ -8,5 +8,5 @@ app.listen(3000, async() => {
     await connect();
     console.log("Mongodb connected");
     let ser  = new service();
-    await ser.create({content : 'Done with #refactor ?'})
+    await ser.create({content : 'my other #COdE #work or #NOT ?'})
 });
