@@ -16,7 +16,7 @@ class TweetRepository extends CrudRepository{
     }
     async get(id){
         try{
-            const tweet = await Tweet.findById(id);
+            const tweet = await Tweet.findById(id).populate({path :'likes'});//because we are populating the array thats why path
             return tweet;
         }
         catch(error){
