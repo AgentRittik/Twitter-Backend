@@ -16,7 +16,7 @@ class TweetRepository extends CrudRepository{
     }
     async get(id){
         try{
-            const tweet = await Tweet.findById(id).populate({path :'likes'});//because we are populating the array thats why path
+            const tweet = await Tweet.findById(id);//.populate({path :'likes'});//because we are populating the array thats why path
             return tweet;
         }
         catch(error){
@@ -26,7 +26,12 @@ class TweetRepository extends CrudRepository{
 
     async getWithComments(id){
         try{
-            const tweet = await Tweet.findById(id).populate({path:'comments'}).lean(); //WE HAVE TO USE path here because we don't have direct association we pass comment as an array but if we pass the object then we just write ('comments')
+            const tweet = await Tweet.findById(id).populate({
+                path:'comments',
+                populate :{
+                    path :'comments'
+                }
+            }).lean(); //WE HAVE TO USE path here because we don't have direct association we pass comment as an array but if we pass the object then we just write ('comments')
             // we used lean here because mongo doesn't return palin js object , it returns mongo document , so to  convert it it JS OBJECT we have use Lean()
             return tweet;
         }
