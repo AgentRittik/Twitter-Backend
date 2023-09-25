@@ -11,7 +11,6 @@ class LikeService {
     async toggleLike(modelId, modelType , userId){//  /api/v1/likes/toggle?id=model&type=Tweet
         if(modelType == 'Tweet'){
             var likeable = await this.tweetRepository.get(modelId);
-            console.log(likeable);
         }
         else if(modelType == 'Comment'){
             ///Todo
@@ -26,8 +25,6 @@ class LikeService {
             onModel : modelType,
             likeable : modelId
         });
-        console.log("hello", exists);
-
         if(exists){ // we have to remove it  // also understan opull operation of mongodb
             likeable.likes.pull(exists.id) // removed from tweet like property array
             await likeable.save();
